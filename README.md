@@ -1,6 +1,6 @@
 # MIMIC-III-Start-to-End
 
-This repository presents a step by step process of building the mimic-iii database in two ways:
+Most of the code in this repository is a customized version from https://github.com/MIT-LCP/mimic-code/tree/main/mimic-iii . This repository presents a step by step process of building the mimic-iii database in two ways:
 
 ## From scratch using the zipped csv files
 
