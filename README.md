@@ -18,10 +18,15 @@ This repository presents a step by step process of building the mimic-iii databa
 
 6) Check the status of the database by running following:
 *) psql -U postgres -d mimic   # on the terminal
+
 *) \dn  # lists the name of the schemas
+
 *) set search_path to mimiciii;  # on psql console
+
 *) select * from patients limit 10;
+
 *) \q  # exits the psql console
+
 *) exit  # exits the container
 
 7) You can check if the location that given in Step 1 for storing the built database is written or not. You should find an image named 'postgres/mimic' when you run 'docker images' on terminal.
