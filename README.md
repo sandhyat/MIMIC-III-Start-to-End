@@ -17,17 +17,18 @@ This repository presents a step by step process of building the mimic-iii databa
 5) Run Full-MIMIC-building-pipeline-2.sh on the terminal to build some existing concepts (additional views of comorbidities etc). Note that these views will also be saved along with the built database. The commands inside this file can be run one by one also to make it more interactive.
 
 6) Check the status of the database by running following:
-*) psql -U postgres -d mimic   # on the terminal
 
-*) \dn  # lists the name of the schemas
+  *) psql -U postgres -d mimic   # on the terminal
 
-*) set search_path to mimiciii;  # on psql console
+  *) \dn  # lists the name of the schemas
 
-*) select * from patients limit 10;
+  *) set search_path to mimiciii;  # on psql console
 
-*) \q  # exits the psql console
+  *) select * from patients limit 10;
 
-*) exit  # exits the container
+  *) \q  # exits the psql console
+
+  *) exit  # exits the container
 
 7) You can check if the location that given in Step 1 for storing the built database is written or not. You should find an image named 'postgres/mimic' when you run 'docker images' on terminal.
 
