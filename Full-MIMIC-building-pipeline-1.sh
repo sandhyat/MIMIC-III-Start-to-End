@@ -11,6 +11,7 @@ docker build -t postgres/mimic .
 
 docker run \
 --name mimic \
+--shm-size=1g \
 -p 5434:5432 \
 -e BUILD_MIMIC=1 \
 -e POSTGRES_PASSWORD=postgres-pswrd \

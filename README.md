@@ -1,6 +1,6 @@
 # MIMIC-III-Start-to-End
 
-Most of the code in this repository is a customized version from https://github.com/MIT-LCP/mimic-code/tree/main/mimic-iii . This repository presents a step by step process of building the mimic-iii database in two ways:
+Most of the code in this repository is a customized version from https://github.com/MIT-LCP/mimic-code/tree/main/mimic-iii . This repository presents a step by step process of accessing the mimic-iii database inside a psql docker container in following two ways:
 
 ## From scratch using the zipped csv files
 
@@ -18,18 +18,37 @@ Most of the code in this repository is a customized version from https://github.
 
 6) Check the status of the database by running following:
 
-  *) psql -U postgres -d mimic   # on the terminal
+  *) psql -U postgres -d mimic   # on the container's terminal
 
-  *) \dn  # lists the name of the schemas
+  *) \dn     # lists the name of the schemas
 
-  *) set search_path to mimiciii;  # on psql console
+  *) set search_path to mimiciii;   # on psql console
 
   *) select * from patients limit 10;
 
-  *) \q  # exits the psql console
+  *) \q    # exits the psql console
 
-  *) exit  # exits the container
+  *) exit   # exits the container
 
 7) You can check if the location that given in Step 1 for storing the built database is written or not. You should find an image named 'postgres/mimic' when you run 'docker images' on terminal.
 
 ## From already built binaries and a docker image
+
+0) Make sure you have the location for already built compressed database.
+
+1) Pull the docker image from the docker hub using "docker pull docker121720/mimic-building:1.0"
+
+2) Update MIMIC-loading-from-binaries.sh by including the location of the built binaries in docker run command.
+
+3) Run MIMIC-loading-from-binaries.sh on the terminal. After the file has been executed, you will be inside the container 'MIMIC-dataCont'.
+
+4) Step 6 from the above method can be followed to check the status of the database.
+
+
+### Important points to note:
+
+1) Make sure the ports 5434 and 5436 are not busy before running the .sh files in either approach.
+
+2) Note the difference between the value of environment variable BUILD_MIMIC in the docker run command in the sh files.
+
+3) If you want to newly build or rebuild some concepts and you get error 'no space left on the device' or something related to shared memory, update the docker run command by adding '--shm-size=1g'
