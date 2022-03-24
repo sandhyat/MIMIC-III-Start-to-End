@@ -51,4 +51,4 @@ Most of the code in this repository is a customized version from https://github.
 
 2) Note the difference between the value of environment variable BUILD_MIMIC in the docker run command in the .sh files.
 
-3) If you want to newly build or rebuild some concepts and you get error 'no space left on the device' or something related to shared memory, update the docker run command by adding '--shm-size=1g'
+3) If you want to newly build or rebuild some concepts and you get error 'no space left on the device' or something related to shared memory, update the docker run command by adding '--shm-size=1g'.
