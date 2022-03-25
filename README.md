@@ -10,14 +10,14 @@ Most of the code in this repository is a customized version from https://github.
 
 2) Run Full-MIMIC-building-pipeline-1.sh on the terminal.
 
-3) Obtain the running container's id by 'docker ps -a' and check the logs for progress on the database build using 'docker logs -f YOUR_CONTAINER_ID'. Once the logs says that 'PostgreSQL init process complete; ready for start up.', start the container in bash by going to step 4.
+3) Obtain the running container's id by `docker ps -a` and check the logs for progress on the database build using `docker logs -f YOUR_CONTAINER_ID`. Once the logs says that 'PostgreSQL init process complete; ready for start up.', start the container in bash by going to step 4.
 
-4) Run 'docker exec -it mimic /bin/bash' to get inside the running container.
+4) Run `docker exec -it mimic /bin/bash` to get inside the running container.
 
 5) Run Full-MIMIC-building-pipeline-2.sh on the terminal to build some existing concepts (additional views of comorbidities etc). Note that these views will also be saved along with the built database. The commands inside this file can be run one by one also to make it more interactive.
 
 6) Check the status of the database by running following:
-
+```
   *) psql -U postgres -d mimic   # on the container's terminal
 
   *) \dn     # lists the name of the schemas
@@ -29,14 +29,14 @@ Most of the code in this repository is a customized version from https://github.
   *) \q    # exits the psql console
 
   *) exit   # exits the container
-
+```
 7) You can check if the location that given in Step 1 for storing the built database is written or not. You should find an image named 'postgres/mimic' when you run 'docker images' on terminal.
 
 ## From already built binaries and a docker image
 
 0) Make sure you have the location for already built compressed database.
 
-1) Pull the docker image from the docker hub using "docker pull docker121720/mimic-building:1.0"
+1) Pull the docker image from the docker hub using `docker pull docker121720/mimic-building:1.0`
 
 2) Update MIMIC-loading-from-binaries.sh by including the location of the built binaries in docker run command.
 
